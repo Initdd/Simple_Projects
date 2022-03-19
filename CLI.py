@@ -6,66 +6,100 @@ online = True
 user = "user_1"
 
 # Commands
-def cat(file):
-	fil = open(file, "r")
-	print(fil.read())
-	fil.close()
+def cat(*params):
+	if "-h" in params:
+		print("read a text based file")
+	else:
+		fil = open(params[0], "r")
+		print(fil.read())
+		fil.close()
+
+def help():
+	for item in dict:
+		if item == "help":
+			pass
+		else:
+			print(item)
 	
-def clear():
-    if os.name == "nt":
-        os.system("cls")
+def clear(*params):
+    if "-h" in params:
+    	print("clear terminal")
     else:
-        os.system("clear")
+    	if os.name == "nt":
+        	os.system("cls")
+    	else:
+        	os.system("clear")
 	
 def rm(*param):
-    if len(param) == 2 and param[1] == "-D":
-        try:
-	        os.rmdir(param[0])
-        except:
-            x = input("warn: directory not empty. want do delete anyway?(Y/N) ")
-            if x == "y" or x == "Y":
-                shutil.rmtree(param[0])
-            else:
-                print("operation canceled")
+    if "-h" in param:
+    	print("remove files/directories\n-D for directories\nnothing for files (plus name of the file, obviously)")
     else:
-        try:
-            os.remove(param[0])
-        except:
-            print("not a file")
+    	if len(param) == 2 and param[1] == "-D":
+        	try:
+	        	os.rmdir(param[0])
+        	except:
+        	   	x = input("warn: directory not empty. want do delete anyway?(Y/N) ")
+        	   	if x == "y" or x == "Y":
+        	   	   shutil.rmtree(param[0])
+        	   	else:
+        	   		print("operation canceled")
+    	else:
+        	try:
+        		os.remove(param[0])
+        	except:
+        		print("not a file")
 	
-def touch(name):
-	file = open(name, "w")
-	file.close()
+def touch(*params):
+	if "-h" in params:
+		print("create empty file")
+	else:
+		file = open(params[0], "w")
+		file.close()
 	
-def mkdir(name):
-	os.makedirs(name)
+def mkdir(*params):
+	if "-h" in params:
+		print("create folder")
+	else:
+		os.makedirs(params[0])
 
-def cd(param):
-    try:
-        os.chdir(param)
-    except:
-        print(f"no file named \"{param}\"")
+def cd(*params):
+    if "-h" in params:
+    	print("change current directory")
+    else:
+    	try:
+        	os.chdir(params[0])
+    	except:
+        	print(f"no file named \"{param[0]}\"")
     
-def ls():
+def ls(*params):
 	x = os.listdir()
-	for y in x:
-		print(y)
+	if "-h" in params:
+		print("list items in current directory")
+	else:
+		for y in x:
+			print(y)
 
-def pwd():
-    print(os.getcwd())
+def pwd(*params):
+    if "-h" in params:
+    	print("print working directory")
+    else:
+    	print(os.getcwd())
 
 def test1(*params):
     full = ""
-    if len(params) > 3:
-        print(len(params))
-        print("too many paramters")
+    if "-h" in params:
+    	print("-----------------------\ntest command help menu\n-----------------------")
     else:
-        for x in params:
-            full += x
-        print(full)
+    	if len(params) > 3:
+    	  	 print(len(params))
+    	  	 print("too many paramters")
+    	else:
+    	   	    for x in params:
+    	   	    	full += x
+    	   	    print(full)
 
 # Dict
-dict = {"pwd":pwd, "test":test1, "cd":cd, "ls":ls, "cat":cat, "mkdir":mkdir, "touch":touch, "clear":clear, "rm":rm}
+dict = {"help":help, "pwd":pwd, "test":test1, "cd":cd, "ls":ls, "cat":cat, "mkdir":mkdir, "touch":touch, "clear":clear, "rm":rm}
 
 while online:
     # location
@@ -82,6 +116,7 @@ while online:
             try:
                 dict.get(main)()
             except:
+                pass
                 print("too few arguments were given")
         else:
             del com_raw[0]
