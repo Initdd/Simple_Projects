@@ -1,4 +1,4 @@
 # Trades
 
 => CLI.py
-= projectile Simulation
+=> projectile Simulation
