@@ -4,7 +4,7 @@ random projects on python
 
 ## Current List
 
-### CLI
+### CLI[https://github.com/Initdd/Simple_Projects/tree/main/CLI]
 
 A simple unix based command line with the following commands
 
