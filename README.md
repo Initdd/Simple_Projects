@@ -4,21 +4,10 @@ random projects on python
 
 ## Current List
 
-### CLI[https://github.com/Initdd/Simple_Projects/tree/main/CLI]
+### CLI
 
-A simple unix based command line with the following commands
-
-* help
-* cat
-* clear
-* rm
-* touch
-* mkdir
-* cd
-* ls
-* pwd
+[More Info](https://github.com/Initdd/Simple_Projects/tree/main/CLI)
 
 ### Projectile Simulation
 
-A more complex project based on motion equations  
-Writen in python with pygame
+[More Info](https://github.com/Initdd/Simple_Projects/tree/main/projectile_simulation)
