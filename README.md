@@ -3,7 +3,6 @@
 random projects on python
 
 ## Current List
-
 ---
 
 ### CLI
