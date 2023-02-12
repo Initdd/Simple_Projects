@@ -1,4 +1,4 @@
-### CLI
+# CLI
 
 A simple unix based command line with the following commands
 
