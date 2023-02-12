@@ -4,7 +4,7 @@ random projects on python
 
 ## Current List
 
-#### CLI
+### CLI
 
 A simple unix based command line with the following commands
 
@@ -18,7 +18,7 @@ A simple unix based command line with the following commands
 * ls
 * pwd
 
-#### Projectile Simulation
+### Projectile Simulation
 
 A more complex project based on motion equations
 Writen in python with pygame
